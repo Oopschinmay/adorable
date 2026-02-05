@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@700&display=swap');
+
+.valentine-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-size: 200% 200%;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+/* Following heart cursor effect */
+.following-heart {
+  position: fixed;
+  font-size: 2rem;
+  pointer-events: none;
+  z-index: 1000;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
+}
+
+.hearts-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.heart-float {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.rose-float {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+}
+
+.emoji-container {
+  font-size: 4rem;
+}
+
+.emoji {
+  display: inline-block;
+}
+
+.question {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    2px 2px 6px rgba(255, 105, 180, 0.5);
+  letter-spacing: 0.08em;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 182, 193, 0.6);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #ffd700;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.buttons-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  color: white;
+  padding: 1.2rem 3rem;
+}
+
+.btn-yes:hover {
+  background: linear-gradient(135deg, #ff5252, #ff3838);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.btn-no {
+  background: linear-gradient(135deg, #b0bec5, #90a4ae);
+  color: white;
+}
+
+.btn-no:hover {
+  background: linear-gradient(135deg, #a0aec5, #80949e);
+}
+
+.celebration-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.success-message {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+}
+
+.celebration-gif {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+}
+
+.success-message h1 {
+  font-size: 2.5rem;
+  color: #ff6b9d;
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+}
+
+.success-message p {
+  font-size: 1.3rem;
+  color: #555;
+  margin: 0 0 2rem 0;
+}
+
+.btn-reset {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  margin-top: 1rem;
+}
+
+.btn-reset:hover {
+  background: linear-gradient(135deg, #5568d3, #6a3d91);
+}
+
+.confetti {
+  position: fixed;
+  font-size: 2rem;
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .question-container {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .question {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .buttons-container {
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .success-message {
+    padding: 2rem 1rem;
+  }
+
+  .success-message h1 {
+    font-size: 1.8rem;
+  }
+
+  .success-message p {
+    font-size: 1rem;
+  }
+
+  .heart-float {
+    font-size: 1.5rem;
+  }
+}

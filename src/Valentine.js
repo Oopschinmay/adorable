@@ -295,7 +295,7 @@ const Valentine = () => {
             initial="hidden"
             animate="visible"
           >
-            You made me the happiest bubu! 💕
+            You made me happiest bubu! 💕
           </motion.h1>
 
           <motion.p

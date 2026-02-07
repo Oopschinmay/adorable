@@ -10,6 +10,12 @@ const Valentine = () => {
   const noButtonRef = useRef(null);
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
 
+  // Preload the celebration gif
+  useEffect(() => {
+    const img = new Image();
+    img.src = celebration;
+  }, []);
+
   // Track mouse movement for heart following effect
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -85,17 +91,17 @@ const Valentine = () => {
   };
 
   const confettiVariants = {
-    hidden: { opacity: 0, scale: 0 },
+    hidden: { opacity: 0, scale: 0, y: 0, x: 0 },
     visible: (i) => ({
-      opacity: [1, 0],
-      scale: [1, 0],
-      y: [0, -100],
-      x: Math.cos((i / 10) * Math.PI * 2) * 80,
-      rotate: Math.random() * 180,
+      opacity: [1, 1, 0],
+      scale: [0, 1, 0],
+      y: [0, -300 - Math.random() * 100, -400],
+      x: Math.sin((i / 20) * Math.PI * 2) * 150 + (Math.random() * 50 - 25),
+      rotate: Math.random() * 720,
       transition: {
-        duration: 1.5,
+        duration: 2.5,
         ease: 'easeOut',
-        delay: i * 0.01,
+        delay: i * 0.02,
       },
     }),
   };
@@ -220,7 +226,7 @@ const Valentine = () => {
           </motion.h1>
 
           <motion.p variants={itemVariants} className="subtitle">
-            I promise it'll be sweet 🍫💕
+            I promise it'll be sweet, just like you 🍫💕
           </motion.p>
 
           <motion.div variants={itemVariants} className="buttons-container">
@@ -228,7 +234,7 @@ const Valentine = () => {
               className="btn btn-yes"
               onClick={handleYes}
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.85 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               Yes! 💕
@@ -241,7 +247,7 @@ const Valentine = () => {
                 x: noPosition.x,
                 y: noPosition.y,
               }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
+              transition={{ duration: 0.1, ease: 'easeOut' }}
               onMouseEnter={handleNoHover}
               onMouseLeave={() => setNoPosition({ x: 0, y: 0 })}
             >
@@ -258,7 +264,7 @@ const Valentine = () => {
         >
           {yesClicked && (
             <>
-              {[...Array(10)].map((_, i) => (
+              {[...Array(20)].map((_, i) => (
                 <motion.span
                   key={i}
                   className="confetti"
@@ -267,7 +273,7 @@ const Valentine = () => {
                   initial="hidden"
                   animate="visible"
                 >
-                  {['❤️', '💕', '💖', '✨', '🎉', '💐', '🌹'][i % 7]}
+                  {['❤️', '💕', '💖', '✨', '🎉', '💐', '🌹', '🎊', '💝', '🌟'][i % 10]}
                 </motion.span>
               ))}
             </>
@@ -286,7 +292,8 @@ const Valentine = () => {
             className="celebration-gif"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            loading="eager"
           />
 
           <motion.h1
@@ -295,7 +302,7 @@ const Valentine = () => {
             initial="hidden"
             animate="visible"
           >
-            You made me happiest bubu! 💕
+            You made me the happiest bubu! 💕
           </motion.h1>
 
           <motion.p

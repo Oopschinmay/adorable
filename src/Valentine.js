@@ -250,6 +250,7 @@ const Valentine = () => {
               transition={{ duration: 0.1, ease: 'easeOut' }}
               onMouseEnter={handleNoHover}
               onMouseLeave={() => setNoPosition({ x: 0, y: 0 })}
+              onClick={handleNoHover}
             >
               No 😢
             </motion.button>
